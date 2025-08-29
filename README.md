@@ -2,19 +2,31 @@
 
 This is my first project on building an NLP/LLM-based chatbot model.  
 The process starts with creating a synthetic dataset, then training the model using LoRA.  
-It has two main parts:  
 
-1. **Synthetic Data Creation & training the model** – using Colab and local tools (Ollama, Transformers, TRL, PEFT, etc.).  
+## Project Structure
 
-2. **Web Application** – built with Flask, HTML, CSS (Bootstrap), and JavaScript.  
+notebooks/                    # Jupyter notebooks
+  ├─ GenerateSyntheticData.ipynb   # creates a synthetic dataset for training
+  └─ Model_Training.ipynb          # fine-tunes the model using LoRA  
 
----
+data/                       # datasets
+  ├─ instruction.json             # main dataset after generation
+  ├─ instructionquality.json      # dataset filtered with an LLM for quality
+  └─ qualityresults.json          # dataset + explanations  
+
+requirements.txt            # list of dependencies  
+README.md                   # project documentation  
+
 
 ## How to Run
 1. Clone this repository  
+    git clone https://github.com/ikigai13/Python_Chatbot.git
+    cd Python_Chatbot
+
 2. Install dependencies:  
    ```bash
    pip install -r requirements.txt
+
 2. Start the Flask app:
     cd chatbot
     python app.py
