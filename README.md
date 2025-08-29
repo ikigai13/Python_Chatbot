@@ -4,7 +4,7 @@ This is my first project on building an NLP/LLM-based chatbot model.
 The process starts with creating a synthetic dataset, then training the model using LoRA.  
 
 ## Project Structure
-'''
+```
 notebooks/                    # Jupyter notebooks
   ├─ GenerateSyntheticData.ipynb   # creates a synthetic dataset for training
   └─ Model_Training.ipynb          # fine-tunes the model using LoRA  
@@ -16,7 +16,7 @@ data/                       # datasets
 
 requirements.txt            # list of dependencies  
 README.md                   # project documentation  
-'''
+```
 
 ## How to Run
 1. Clone this repository  
