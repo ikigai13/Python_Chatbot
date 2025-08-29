@@ -1,0 +1,18 @@
+# Core ML / Transformers
+torch
+transformers
+datasets
+trl
+peft
+bitsandbytes
+
+# Utilities
+colorama
+pydantic
+
+# Synthetic Data Generation
+docling
+litellm
+
+# Web Development
+flask
