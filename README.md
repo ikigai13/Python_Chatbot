@@ -20,6 +20,9 @@ This project is my first step into building an NLP/LLM-based chatbot. It demonst
 - Created a simple **Flask app** with **HTML, CSS, and Bootstrap**
 - Allows basic testing and interaction with the trained model
 
+## Project Status
+The Flask + HTML/CSS (Bootstrap) web interface is completed. I am currently refining the prompt engineering to improve response quality.
+
 ## Project Structure
 ```
 notebooks/                    # Jupyter notebooks
