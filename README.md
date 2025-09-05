@@ -38,11 +38,18 @@ This project is my first step into building an NLP/LLM-based chatbot. It demonst
 
 ## Project Structure
 ```
-notebooks/                    # Jupyter notebooks
+chatbot/
+  ├─ app.py                       # Flask app (Python)
+  ├─ static/
+  │    └─ style.css               # CSS
+  └─ templates/
+       └─ index.html              # HTML + JS + Bootstrap
+
+notebooks/                         # Jupyter notebooks
   ├─ GenerateSyntheticData.ipynb   # creates a synthetic dataset for training
   └─ Model_Training.ipynb          # fine-tunes the model using LoRA  
 
-data/                       # datasets
+data/                             # datasets
   ├─ instruction.json             # main dataset after generation
   ├─ instructionquality.json      # dataset filtered with an LLM for quality
   └─ qualityresults.json          # dataset + explanations  
