@@ -57,25 +57,3 @@ data/                             # datasets
 requirements.txt            # list of dependencies  
 README.md                   # project documentation  
 ```
-
-## How to Run
-1. Clone this repository  
-    ```
-    git clone https://github.com/ikigai13/Python_Chatbot.git
-    cd Python_Chatbot
-    ```
-
-2. Install dependencies:
-    ```
-    pip install -r requirements.txt
-    ```
-
-3. Run the notebooks
-  - Open notebooks/GenerateSyntheticData.ipynb to generate the dataset.
-  - Open notebooks/Model_Training.ipynb to fine-tune the model.
-
-4. (Optional) Run the Flask app for testing
-    ```
-    cd chatbot
-    python app.py
-    ```
