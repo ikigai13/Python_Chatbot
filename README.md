@@ -2,23 +2,23 @@
 
 ## Introduction
 
-This project is my first step into building an NLP/LLM-based chatbot. It demonstrates the end-to-end process of generating synthetic data, fine-tuning a language model using LoRA, and testing it via a simple web application. The goal is to showcase practical experience in NLP workflows as part of my learning and portfolio development.
+This project is my first step into building an NLP/LLM-based chatbot. It demonstrates the end-to-end process of generating synthetic data using llm, fine-tuning a large language model using LoRA, and testing it via a simple web application. The goal is to showcase practical experience in NLP workflows as part of my learning and portfolio development.
 
 ## Project Workflow
 
 ### 1. Synthetic Data Generation
 - Used **Jupyter Notebook** and **Ollama/Qwen2.5:3B** to generate synthetic data
-- Input data was extracted from PDFs and converted into Q&A format
+- Input data was extracted from PDF(A byte of python) and converted into Q&A format
 - Data was preprocessed and filtered to ensure high quality
 
 ### 2. Model Training
-- Training was done on **Google Colab** using **Hugging Face Transformers**
+- Training was done on **Google Colab** for its T4 GPU and using **Hugging Face Transformers**
 - Base model: `meta-llama/Llama-3.2-1B-Instruct`
 - Preprocessed synthetic data was fine-tuned using **LoRA**
 
 ### 3. Web Application (Testing)
 - Created a simple **Flask app** with **HTML, CSS, and Bootstrap**
-- Allows basic testing and interaction with the trained model
+- Allows users to chat with the trained model running on local hardware
 
 ## Project Status
 The Flask + HTML/CSS (Bootstrap) web interface is completed. I am currently refining the prompt engineering to improve response quality.
