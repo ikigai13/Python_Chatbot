@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Python Chatbot</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #949494;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #user-input {
+        border-radius: 10px 0 0 10px; /* makes the left side rounded */
+        border: 2px solid #0d6efd; /* changes the border color */
+        padding: 10px 10px; /* increases padding inside the input box */
+        background-color: #f0f8ff; /* a very light blue background */
+        flex-grow: 1;
+        /* Reduced font size for a more compact look */
+        font-size: 0.9rem; 
+      }
+      .btn-primary {
+        /* This matches the right side of a rounded input field */
+        border-radius: 0 10px 10px 0;
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+
+        padding: 10px 20px;
+        /* Add a hover effect for a better user experience */
+        transition: background-color 0.5s ease;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.5); /* Makes the button 20% brighter on hover */
+      }
+      .chat-container {
+        background: rgb(255, 255, 255);
+        width: 600px;
+        max-width: 90%;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 25px 25px 25px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+      #chat-box {
+        height: 500px;
+        overflow-y: auto;
+        border: 2px solid #d8d8d8;
+        padding: 10px;
+        margin-bottom: 10px;
+        background: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        gap: 5px;
+      }
+      .user-msg {
+        align-self: flex-end;
+        margin-bottom: 5px;
+        color: white;
+        background-color: #0d6efd;
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+      }
+
+      .bot-msg pre {
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 8px 12px;
+        border-radius: 10px;
+        overflow-x: auto;
+        font-family: "Courier New", monospace;
+        margin: 5px 0;
+        white-space: pre-wrap; /* wrap long lines */
+      }
+
+      .bot-msg {
+        align-self: flex-start; /* keeps bot messages to the left */
+        margin-bottom: 5px;
+        color: black;
+        background-color: #e2e3e5;
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <h4 class="text-center">Python Chatbot</h4>
+      <div id="chat-box"></div>
+      <div class="input-group">
+        <input
+          id="user-input"
+          type="text"
+          class="form-control"
+          placeholder="Type your message..."
+        />
+        <button onclick="sendMessage()" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+
+    <script>
+      async function sendMessage() {
+        const inputField = document.getElementById("user-input");
+        const message = inputField.value.trim();
+        if (!message) return;
+
+        inputField.value = "";
+        const chatBox = document.getElementById("chat-box");
+        chatBox.innerHTML += `<div class='user-msg'>${message}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        const response = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: message }),
+        });
+        const data = await response.json();
+        const formattedReply = data.reply
+          .replace(/```python([\s\S]*?)```/g, "<pre>$1</pre>") // Python code
+          .replace(/```([\s\S]*?)```/g, "<pre>$1</pre>"); // any code
+
+        chatBox.innerHTML += `<div class='bot-msg'>${formattedReply}</div>`;
+        chatBox.scrollTo({ top: chatBox.scrollHeight, behavior: "smooth" });
+      }
+
+      // Press Enter to send
+      document
+        .getElementById("user-input")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") sendMessage();
+        });
+    </script>
+  </body>
+</html>
