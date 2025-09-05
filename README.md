@@ -1,8 +1,8 @@
 # Python Chatbot
-
 ## Introduction
 
 This project is my first step into building an NLP/LLM-based chatbot. It demonstrates the end-to-end process of generating synthetic data using llm, fine-tuning a large language model using LoRA, and testing it via a simple web application. The goal is to showcase practical experience in NLP workflows as part of my learning and portfolio development.
+
 
 ## Project Workflow
 
@@ -11,17 +11,34 @@ This project is my first step into building an NLP/LLM-based chatbot. It demonst
 - Input data was extracted from PDF(A byte of python) and converted into Q&A format
 - Data was preprocessed and filtered to ensure high quality
 
+
 ### 2. Model Training
 - Training was done on **Google Colab** for its T4 GPU and using **Hugging Face Transformers**
 - Base model: `meta-llama/Llama-3.2-1B-Instruct`
 - Preprocessed synthetic data was fine-tuned using **LoRA**
 
+
 ### 3. Web Application (Testing)
 - Created a simple **Flask app** with **HTML, CSS, and Bootstrap**
 - Allows users to chat with the trained model running on local hardware
 
+
 ## Project Status
 The Flask + HTML/CSS (Bootstrap) web interface is completed. I am currently refining the prompt engineering to improve response quality.
+
+
+## Screenshots
+
+<p align="center">
+  Chatbot Interface (Flask + Bootstrap)
+  <img src="screenshot/Ui.png" width="800">
+</p>  
+
+<p align="center">
+  <img src="screenshot/ChatExample1.png" width="300">
+  <img src="screenshot/ChatExample2.png" width="300">
+</p>  
+
 
 ## Project Structure
 ```
