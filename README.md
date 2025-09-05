@@ -23,10 +23,6 @@ This project is my first step into building an NLP/LLM-based chatbot. It demonst
 - Allows users to chat with the trained model running on local hardware
 
 
-## Project Status
-The Flask + HTML/CSS (Bootstrap) web interface is completed. I am currently refining the prompt engineering to improve response quality.
-
-
 ## Screenshots
 
 <p align="center">
